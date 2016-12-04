@@ -1,52 +1,35 @@
 # CasperSplash
-Onboarding splash screen for Casper Suite DEP
+**Onboarding splash screen for jamf | Pro with DEP**
 
-Caution: This repo is not ready.
-Watch for an announcement at http://maclovin.org
+The main issue we have with DEP is that it is silent. Some software should be installed before the user starts to use his Mac. 
 
-# Setting Preferences
-
-## CasperSplash.plist
-
-domain is io.fti.CasperSplash
-
-I recommend installing a plist in /Library/Preferences/io.fti.CasperSplash.plist
-Unfortunately, the timing a profile will be pushed is not guaranteed.
-
-The following example will:
-- Set the base path to `/Library/CasperSplash`
-- Will run the script `/Library/CasperSplash/postInstall.sh` when user click on "Continue"
-- Will display the html page `/Library/CasperSplash/presentation.html`
-- Will add an item in the right corner, called "Acrobat Reader" with subtitle "PDF Reader", with the icon `/Library/CasperSplash/acrobatreader.png`. It will expect a package name in the form "Adobe Reader XI Installer-11.0.10.pkg"
+![](Assets/caspersplash__1024.jpg)
 
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>assetPath</key>
-        <string>/Library/CasperSplash</string>
-        <key>postInstallAssetPath</key>
-        <string>postInstall.sh</string>
-        <key>htmlPath</key>
-        <string>presentation.html</string>
-        <key>applicationsArray</key>
-        <array>
-            <dict>
-                <key>canContinue</key>
-                <true/>
-                <key>description</key>
-                <string>PDF Reader</string>
-                <key>displayName</key>
-                <string>Acrobat Reader</string>
-                <key>iconRelativePath</key>
-                <string>acrobatreader.png</string>
-                <key>packageName</key>
-                <string>Adobe Reader XI Installer</string>
-            </dict>
-        </array>
-    </dict>
-</plist>
-```
+CasperSplash is a full screen tool that will ask the user to wait while welcoming him, showing some information and which applications are being installed. 
+
+As MacAdmins, it helps us to be more transparent, and it helps our users to feel more in control of their Mac.
+
+## Without CasperSplash
+
+1. Unbox
+2. Power on
+3. Setup Language, Keymap (eventually network)
+4. Enter AD login/password at DEP screen
+5. Create a local user (with pre-populated AD credentials)
+6. Go through the remaining Setup Assistant screens
+7. Desktop appears
+
+At this point the user is puzzled: "What know?". He starts to click around, feeling lost. During that time, the `enrollmentComplete` policies continue executing. Things will popup, Dock will restart, "core" applications will not be available. User experience is affected.
+
+## With CasperSplash
+
+As soon as possible, CasperSplash launches in full screen. 
+
+The user is now shown which components are being installed, with some information on the left of the screen. 
+
+When all critical applications (the minimum set) are installed, the user can click on "Continue". 
+
+His environment is now set up and ready to use.
+
 
