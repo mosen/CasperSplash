@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.1
 xcode_project: CasperSplash.xcodeproj
 xcode_scheme: CasperSplash
 xcode_sdk: macosx10.12
@@ -8,6 +8,11 @@ xcode_sdk: macosx10.12
 matrix:
   include:
     - xcode_sdk: macosx10.11
+
+
+env:
+- CODE_SIGNING_REQUIRED=NO
+- CODE_SIGN_IDENTITY=""
 
 # http://stackoverflow.com/questions/34231587/xcode-ui-testing-on-travis-for-osx-with-xcode-helper-accessibility
 # Not compatible with 10.12 
