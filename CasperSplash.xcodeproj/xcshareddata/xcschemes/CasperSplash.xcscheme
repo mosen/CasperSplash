@@ -30,7 +30,7 @@
       codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "089D292B1D50D12200E58C6D"
@@ -40,12 +40,22 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "08DAA4851D54A62B0027E650"
                BuildableName = "CasperSplashUITests.xctest"
                BlueprintName = "CasperSplashUITests"
+               ReferencedContainer = "container:CasperSplash.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "34EA6DD51E08F81500A71F84"
+               BuildableName = "CasperSplashRefactoringTests.xctest"
+               BlueprintName = "CasperSplashRefactoringTests"
                ReferencedContainer = "container:CasperSplash.xcodeproj">
             </BuildableReference>
          </TestableReference>
